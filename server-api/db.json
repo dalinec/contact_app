@@ -1,14 +1,19 @@
 {
   "contacts": [
     {
-      "id": "b8er459a-ef48-58d9-gf56-4e8f8d3g3215",
-      "name": "Matthew",
-      "email": "matt@gmail.com"
+      "name": "Ben Henas",
+      "email": "ben@gmail.com",
+      "id": 1
     },
     {
-      "id": "b8er456a-ef48-58d9-hj56-45w48d3g3215",
-      "name": "Tom",
-      "email": "tom@gmail.com"
+      "name": "Matthew Rwe",
+      "email": "matt@gmail.com",
+      "id": 2
+    },
+    {
+      "name": "Joe Renag",
+      "email": "joe@gmail.com",
+      "id": 3
     }
   ]
 }

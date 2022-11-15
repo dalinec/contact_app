@@ -1,31 +1,34 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+import {
+  useGetContactsQuery,
+  useDeleteContactMutation,
+} from '../../features/contactApiSlice';
+
 import ContactCard from '../contactCard/contactCard.component';
 
-const data = [
-  {
-    id: Math.random(),
-    name: 'Adam Marcus',
-    email: 'adam123@gmail.com',
-  },
-  {
-    id: Math.random(),
-    name: 'Tom Cruise',
-    email: 'tom@gmail.com',
-  },
-  {
-    id: Math.random(),
-    name: 'James Bond',
-    email: 'james@gmail.com',
-  },
-];
-
 const ContactList = () => {
-  const handleDelete = async (id: any) =>
-    toast.success('Contact deleted successfully');
+  const { data, isLoading, error } = useGetContactsQuery();
+  const [deleteContact] = useDeleteContactMutation();
 
-  const renderContactList = data.map((contact) => {
+  useEffect(() => {
+    if (error) {
+      toast.error('Something went wrong!');
+    }
+  }, [error]);
+
+  if (isLoading) {
+    return <h3>Loading...</h3>;
+  }
+
+  const handleDelete = async (id: string) => {
+    await deleteContact(id);
+    toast.success('Contact deleted successfully');
+  };
+
+  const renderContactList = data?.map((contact) => {
     return (
       <ContactCard
         contact={contact}

@@ -25,7 +25,7 @@ const ContactCard: FC<IContactCard> = ({ contact, clickHandler }) => {
         style={{ color: 'red', marginTop: '7px', marginLeft: '10px' }}
         onClick={() => clickHandler(contact.id)}
       ></i>
-      <Link to={`/update/${id}`}>
+      <Link to={`/edit/${id}`}>
         <i
           className='edit alternate outline icon'
           style={{ color: 'blue', marginTop: '7px' }}

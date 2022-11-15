@@ -3,9 +3,11 @@ import { ToastContainer } from 'react-toastify';
 
 import Header from './components/header/header.component';
 import ContactList from './components/contactList/contactList.component';
+import AddOrEditContact from './components/addOrEditContact/addOrEditContact.component';
+import ContactInfo from './components/contactInfo/contactInfo';
 
 import 'react-toastify/dist/ReactToastify.css';
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
@@ -14,9 +16,9 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<ContactList />} />
-        {/* <Route path='/add' element={<AddOrEditUser />} /> */}
-        {/* <Route path='/idet/:id' element={<AddOrEditUser />} /> */}
-        {/* <Route path='/view/:id' element={<UserInfo />} /> */}
+        <Route path='/add' element={<AddOrEditContact />} />
+        <Route path='/edit/:id' element={<AddOrEditContact />} />
+        <Route path='/view/:id' element={<ContactInfo />} />
       </Routes>
     </div>
   );
