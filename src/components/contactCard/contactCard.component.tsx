@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { IUser } from '../../userTypes';
+import { IUser } from '../../types/userTypes';
 import user from '../../images/user.png';
 
 interface IContactCard {
