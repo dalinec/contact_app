@@ -3,7 +3,9 @@ import { IUser } from '../types/userTypes';
 
 export const contactsApi = createApi({
   reducerPath: 'contactsApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://637dff42cfdbfd9a63a39ece.mockapi.io/',
+  }),
   tagTypes: ['Contacts'],
   endpoints: (builder) => ({
     getContacts: builder.query<IUser[], void>({
@@ -25,7 +27,7 @@ export const contactsApi = createApi({
     updateContact: builder.mutation<void, IUser>({
       query: (contact) => ({
         url: `/contacts/${contact.id}`,
-        method: 'PATCH',
+        method: 'PUT',
         body: contact,
       }),
       invalidatesTags: ['Contacts'],
