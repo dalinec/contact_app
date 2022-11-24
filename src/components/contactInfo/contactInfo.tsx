@@ -6,7 +6,7 @@ import './contactInfo.scss';
 
 const ContactInfo = () => {
   const { id } = useParams();
-  const { data, error } = useViewContactQuery(id!);
+  const { data, error, isLoading } = useViewContactQuery(id!);
 
   useEffect(() => {
     if (error) {
@@ -16,26 +16,30 @@ const ContactInfo = () => {
 
   return (
     <>
-      <div className='info-wrapper'>
-        <div className='info'>
-          <div>
-            <strong>ID: </strong>
-            <span>{id}</span>
+      {isLoading ? (
+        <div className='loading'>Loading...</div>
+      ) : (
+        <div className='info-wrapper'>
+          <div className='info'>
+            <div>
+              <strong>ID: </strong>
+              <span>{id}</span>
+            </div>
+            <div>
+              <strong>Name: </strong>
+              <span>{data && data.name}</span>
+            </div>
+            <div>
+              <strong>Email: </strong>
+              <span>{data && data.email}</span>
+            </div>
           </div>
-          <div>
-            <strong>Name: </strong>
-            <span>{data && data.name}</span>
-          </div>
-          <div>
-            <strong>Email: </strong>
-            <span>{data && data.email}</span>
-          </div>
-        </div>
 
-        <Link to='/'>
-          <button className='ui button blue btn'>Go Back</button>
-        </Link>
-      </div>
+          <Link to='/'>
+            <button className='btn'>Go Back</button>
+          </Link>
+        </div>
+      )}
     </>
   );
 };

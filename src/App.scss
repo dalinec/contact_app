@@ -2,36 +2,29 @@ body {
   box-sizing: border-box;
 }
 
-.main {
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 5em;
-  padding: 0 10px;
+h2 {
+  display: flex;
+  justify-content: space-between;
 }
 
-.center {
+.top {
+  display: flex;
   justify-content: center;
-  padding: 10px;
+  align-items: center;
+  box-shadow: 1px 3px 19px -14px rgba(0, 0, 0, 0.75);
 }
 
-.ui.search input {
-  width: 100%;
-  border-radius: 0 !important;
-}
-
-.item {
-  padding: 15px 0px !important;
-}
-
-i.icon {
+.fa {
   float: right;
   font-size: 20px;
   cursor: pointer;
 }
 
-.right {
-  float: right !important;
+.link {
+  text-decoration: none;
+  color: #1f75fe;
 }
-.center-div {
-  text-align: center;
+
+.btn2 {
+  margin: 0;
 }

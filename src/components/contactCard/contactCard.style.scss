@@ -1,0 +1,26 @@
+.item {
+  padding: 15px 0px !important;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.8px solid rgba(128, 128, 128, 0.524);
+
+  .user-info-container {
+    display: flex;
+
+    .image {
+      width: 35px;
+      height: 35px;
+    }
+
+    .info-container {
+      margin-left: 10px;
+    }
+  }
+}
+
+.item:first-child {
+  border-top: 0.8px solid rgba(128, 128, 128, 0.524);
+}
+.item:last-child {
+  border-bottom: 0.8px solid rgba(128, 128, 128, 0.524);
+}

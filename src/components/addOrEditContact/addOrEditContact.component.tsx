@@ -1,6 +1,7 @@
 import { useState, useEffect, FC, FormEvent, SyntheticEvent } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import './addOrEdit.style.scss';
 
 import {
   useViewContactQuery,
@@ -67,9 +68,9 @@ const AddOrEditContact: FC = () => {
   };
 
   return (
-    <div className='ui main'>
-      <h2>Add Contact</h2>
-      <form className='ui form' onSubmit={handleSubmit}>
+    <div className='main'>
+      <h2>{editMode ? 'Edit Contact' : 'Add contact'}</h2>
+      <form onSubmit={handleSubmit}>
         <div className='field'>
           <label>Name</label>
           <input
@@ -90,14 +91,16 @@ const AddOrEditContact: FC = () => {
             onChange={handleInputChange}
           />
         </div>
-        <input
-          type='submit'
-          value={editMode ? 'Update' : 'Add'}
-          className='ui button blue'
-        ></input>
-        <Link to='/'>
-          <button className='ui button blue btn'>Go Back</button>
-        </Link>
+        <div className='button-container'>
+          <input
+            type='submit'
+            value={editMode ? 'Update' : 'Add'}
+            className='btn'
+          ></input>
+          <Link to='/'>
+            <button className='btn'>Go Back</button>
+          </Link>
+        </div>
       </form>
     </div>
   );

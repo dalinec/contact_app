@@ -8,6 +8,7 @@ import {
 } from '../../features/contactApiSlice';
 
 import ContactCard from '../contactCard/contactCard.component';
+import './contactList.style.scss';
 
 const ContactList = () => {
   const { data, isLoading, error } = useGetContactsQuery();
@@ -18,10 +19,6 @@ const ContactList = () => {
       toast.error('Something went wrong!');
     }
   }, [error]);
-
-  if (isLoading) {
-    return <h3>Loading...</h3>;
-  }
 
   const handleDelete = async (id: string) => {
     await deleteContact(id);
@@ -43,12 +40,14 @@ const ContactList = () => {
       <h2>
         Contact List
         <Link to='/add'>
-          <button className='ui button blue right'>Add Contact</button>
+          <button className='btn btn2'>Add Contact</button>
         </Link>
       </h2>
-      <div id='list' className='ui celled list'>
-        {renderContactList}
-      </div>
+      {isLoading ? (
+        <div className='loading-main'>Loading...</div>
+      ) : (
+        <div>{renderContactList}</div>
+      )}
     </div>
   );
 };

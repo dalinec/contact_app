@@ -10,6 +10,8 @@ export const contactsApi = createApi({
   endpoints: (builder) => ({
     getContacts: builder.query<IUser[], void>({
       query: () => '/contacts',
+      transformResponse: (res: any) =>
+        res.sort((a: any, b: any) => b.id - a.id),
       providesTags: ['Contacts'],
     }),
     viewContact: builder.query<IUser, string>({
