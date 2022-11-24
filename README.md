@@ -1,6 +1,5 @@
-Contact Manager app built using react with complete CRUD operations.
+# Contact Manager app built using react with complete CRUD operations.
 
-In this project I used typescript, Redux toolkit query and json-server for getting and storing data.
+## In this project I used typescript, Redux toolkit query and mockapi for getting and storing data.
 
-## update
-updated the db to mockapi
+## Live preview: https://contact-manag.netlify.app
